@@ -2,24 +2,22 @@
 
 .wrapper {
 	display: flex;
-	justify-content: space-between;
 	flex-direction: column;
-
-	height: 100%;
-	max-width: 560px;
+	justify-content: space-between;
 	width: 100%;
-
-	padding: 25px;
+	max-width: 560px;
+	height: 100%;
 	margin: 0 auto;
-
+	padding: 25px;
 	background-repeat: no-repeat;
-	background-size: cover;
 	background-position: center;
+	background-size: cover;
 
 	&.otherPage {
 		height: 280px;
 		border-radius: 0 0 20px 20px;
 		box-shadow: $bx-accent;
+
 		@media (max-width: $mobile) {
 			height: 260px !important;
 		}
@@ -27,10 +25,12 @@
 }
 
 .heading {
-	text-transform: uppercase;
-	color: $white;
 	font-size: 30px;
 	font-weight: bold;
+	text-transform: uppercase;
+
+	color: $white;
+
 	@media (max-width: $mobile) {
 		font-size: 24px;
 	}

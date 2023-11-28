@@ -5,9 +5,9 @@
 	align-items: center;
 	justify-content: space-between;
 	> button {
-		background-color: transparent;
+		cursor: pointer;
 		border: none;
 		outline: none;
-		cursor: pointer;
+		background-color: transparent;
 	}
 }
