@@ -11,14 +11,15 @@ import styles from './Header.module.scss'
 const Header = ({ backLink = '' }) => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
+
 	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
-			{pathname !== '/' ? (
+			{pathname !== '/' || !isAuth ? (
 				<button
 					onClick={() => {
-						navigate(backLink)
+						navigate(isAuth ? backLink : '/auth')
 					}}
 				>
 					<GrPrevious color='#fff' fontSize={23} />
@@ -26,13 +27,13 @@ const Header = ({ backLink = '' }) => {
 			) : (
 				<button
 					onClick={() => {
-						navigate(isAuth ? '/profile' : '/auth')
+						navigate('/profile')
 					}}
 				>
 					<FaRegUser color='#fff' fontSize={23} />
 				</button>
 			)}
-			<Hamburger />
+			{isAuth && <Hamburger />}
 		</header>
 	)
 }
