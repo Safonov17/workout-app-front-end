@@ -16,24 +16,28 @@ const Header = ({ backLink = '' }) => {
 
 	return (
 		<header className={styles.header}>
-			{pathname !== '/' || !isAuth ? (
-				<button
-					onClick={() => {
-						navigate(isAuth ? backLink : '/auth')
-					}}
-				>
-					<GrPrevious color='#fff' fontSize={23} />
-				</button>
-			) : (
-				<button
-					onClick={() => {
-						navigate('/profile')
-					}}
-				>
-					<FaRegUser color='#fff' fontSize={23} />
-				</button>
+			{isAuth && (
+				<>
+					{pathname === '/' && isAuth ? (
+						<button
+							onClick={() => {
+								navigate('/profile')
+							}}
+						>
+							<FaRegUser color='#fff' fontSize={23} />
+						</button>
+					) : (
+						<button
+							onClick={() => {
+								navigate(isAuth ? backLink : '/auth')
+							}}
+						>
+							<GrPrevious color='#fff' fontSize={23} />
+						</button>
+					)}
+					<Hamburger />
+				</>
 			)}
-			{isAuth && <Hamburger />}
 		</header>
 	)
 }
