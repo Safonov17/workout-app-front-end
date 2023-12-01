@@ -6,6 +6,8 @@ import { useAuth } from '../../hooks/useAuth'
 
 import Layout from '../../components/Layout/Layout'
 
+import Statistics from '../profile/statistics/Statistics'
+
 import styles from './Home.module.scss'
 
 function Home() {
@@ -16,7 +18,7 @@ function Home() {
 		<Layout bgImage='images/home-bg-1-1.jpg'>
 			<Button clickHandler={() => navigate('/new-workout')}>New</Button>
 			<h1 className={styles.heading}>exercises for the shoulders</h1>
-			{/* Counters */}
+			<Statistics />
 		</Layout>
 	)
 }
