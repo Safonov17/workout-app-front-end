@@ -7,6 +7,7 @@ import stylesLayout from '@/components/Layout/Layout.module.scss'
 import Header from '@/components/Layout/header/Header'
 
 import styles from './Profile.module.scss'
+import Statistics from './statistics/Statistics'
 import { useProfile } from './useProfile'
 
 const Profile = () => {
@@ -36,6 +37,8 @@ const Profile = () => {
 						</>
 					)}
 				</div>
+
+				<Statistics />
 			</div>
 			<div
 				className='wrapper-inner-page'
@@ -44,11 +47,11 @@ const Profile = () => {
 				<div className={styles.before_after}>
 					<div>
 						<div className={styles.heading}>Before</div>
-						<img src={beforeImage} alt="" />
+						<img src='/images/before.jpg' alt='Before' draggable={false} />
 					</div>
 					<div>
 						<div className={styles.heading}>After</div>
-						<img src={afterImage} alt="" />
+						<img src='/images/after.jpg' alt='After' draggable={false} />
 					</div>
 				</div>
 			</div>
