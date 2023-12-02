@@ -1,23 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router'
+import Loader from '@/components/ui/Loader'
+import Button from '@/components/ui/button/Button'
+import Field from '@/components/ui/field/Field'
 
-import Loader from '../../components/ui/Loader'
-import Button from '../../components/ui/button/Button'
-import Field from '../../components/ui/field/Field'
-
-import { useAuth } from '../../hooks/useAuth'
-
-import Layout from '../../components/Layout/Layout'
-
-import AuthService from '../../services/auth.service'
+import Layout from '@/components/Layout/Layout'
 
 import styles from './Auth.module.scss'
 import { useAuthPage } from './useAuthPage'
-
-// const isLoading = false
-// const isLoadingAuth = false
 
 const Auth = () => {
 	const { errors, handleSubmit, isLoading, onSubmit, register, setType } =

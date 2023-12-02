@@ -3,9 +3,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
-import AuthService from '../../services/auth.service'
+import AuthService from '@/services/auth.service'
 
 export const useAuthPage = () => {
 	const [type, setType] = useState('login')
