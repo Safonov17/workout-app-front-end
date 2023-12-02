@@ -1,11 +1,11 @@
 @import './variables';
 
 * {
-	margin: 0;
-	padding: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 	&:before,
 	&:after {
 		-webkit-box-sizing: border-box;
@@ -18,22 +18,22 @@
 }
 
 *::-webkit-input-placeholder {
-	color: #c0c0c0;
 	opacity: 1;
+	color: #c0c0c0;
 }
 *:-moz-placeholder {
-	color: #c0c0c0;
 	opacity: 1;
+	color: #c0c0c0;
 }
 
 *::-moz-placeholder {
-	color: #c0c0c0;
 	opacity: 1;
+	color: #c0c0c0;
 }
 
 *:-ms-input-placeholder {
-	color: #c0c0c0;
 	opacity: 1;
+	color: #c0c0c0;
 }
 
 html,
@@ -42,16 +42,16 @@ body {
 }
 
 body {
-	background-color: $black;
-	padding: 0;
-	margin: 0;
-	color: #fff;
-	font-size: 18px;
-	min-width: 320px;
-	position: relative;
-	line-height: 1.65;
 	font-family: $default-font;
+	font-size: 18px;
+	line-height: 1.65;
+	position: relative;
 	overflow-x: hidden;
+	min-width: 320px;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	background-color: $black;
 }
 
 img {
@@ -69,31 +69,32 @@ img {
 }
 
 .dark-link {
-	text-align: right;
-	width: 100%;
 	display: block;
+	width: 100%;
 	margin-bottom: 0.5rem;
+	transition: color 0.3s ease;
+	text-align: right;
 	text-decoration: none;
 	color: $dark-accent;
-	transition: color 0.3s ease;
 	&:hover {
 		color: darken($color: $accent, $amount: 10%);
 	}
 }
 
 .wrapper-inner-page {
+	width: 100%;
+	max-width: 560px;
+	margin: 0 auto;
 	padding: 40px 30px;
 	text-align: center;
-	max-width: 560px;
-	width: 100%;
-	margin: 0 auto;
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
 	margin: 0;
+
+	-webkit-appearance: none;
 }
 
 /* Firefox */
@@ -102,21 +103,23 @@ input[type='number'] {
 }
 
 .error {
-	color: #8d2b3d;
 	font-size: 1rem;
+
+	color: #8d2b3d;
 }
 
 .select2-selection {
 	&__control {
-		cursor: pointer !important;
-		margin-bottom: 2rem;
-		border-radius: 10px !important;
-		min-height: 48px !important;
-		background-color: $dark-accent !important;
-		border: 1px solid transparent !important;
-		color: $white;
 		font-size: 18px;
 		width: 100%;
+		min-height: 48px !important;
+		margin-bottom: 2rem;
+
+		cursor: pointer !important;
+		color: $white;
+		border: 1px solid transparent !important;
+		border-radius: 10px !important;
+		background-color: $dark-accent !important;
 		&--is-focused {
 			border-color: transparent !important;
 			box-shadow: 0 0 0 1px rgba($accent, 0.3) !important;
@@ -124,9 +127,8 @@ input[type='number'] {
 	}
 
 	&__menu {
-		background-color: $dark-accent !important;
 		border-radius: 10px !important;
-
+		background-color: $dark-accent !important;
 		&-list {
 			padding: 0 !important;
 			border-radius: 10px !important;
@@ -152,9 +154,10 @@ input[type='number'] {
 	}
 
 	&__placeholder {
-		color: #946e86 !important;
 		margin-left: 6px !important;
 		text-align: left;
+
+		color: #946e86 !important;
 	}
 
 	&__single-value {
@@ -164,14 +167,13 @@ input[type='number'] {
 	&__multi-value {
 		border-radius: 6px !important;
 		background-color: lighten($dark-accent, 10%) !important;
-
 		&__label {
 			color: $white !important;
 		}
 
 		&__remove:hover {
-			background-color: #8b2557 !important;
 			color: $white !important;
+			background-color: #8b2557 !important;
 		}
 	}
 
