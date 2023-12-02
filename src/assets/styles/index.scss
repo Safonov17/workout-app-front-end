@@ -93,18 +93,17 @@ img {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	margin: 0;
-
 	-webkit-appearance: none;
 }
 
 /* Firefox */
 input[type='number'] {
+	appearance: textfield;
 	-moz-appearance: textfield;
 }
 
 .error {
 	font-size: 1rem;
-
 	color: #8d2b3d;
 }
 
@@ -114,7 +113,6 @@ input[type='number'] {
 		width: 100%;
 		min-height: 48px !important;
 		margin-bottom: 2rem;
-
 		cursor: pointer !important;
 		color: $white;
 		border: 1px solid transparent !important;
@@ -156,7 +154,6 @@ input[type='number'] {
 	&__placeholder {
 		margin-left: 6px !important;
 		text-align: left;
-
 		color: #946e86 !important;
 	}
 
