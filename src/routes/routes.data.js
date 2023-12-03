@@ -3,6 +3,8 @@ import Home from '@/screens/home/Home'
 import NewExercise from '@/screens/new-exercise/NewExercise'
 import NewWorkout from '@/screens/new-workout/NewWorkout'
 import Profile from '@/screens/profile/Profile'
+import ListWorkouts from '@/screens/workout/ListWorkouts'
+import Workout from '@/screens/workout/Workout'
 
 export const routes = [
 	{
@@ -32,7 +34,7 @@ export const routes = [
 	},
 	{
 		path: '/workout/:id',
-		component: SingleWorkout,
+		component: Workout,
 		isAuth: true
 	},
 	{
