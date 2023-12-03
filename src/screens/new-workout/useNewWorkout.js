@@ -20,13 +20,19 @@ export const useNewWorkout = () => {
 		body => WorkoutService.create(body),
 		{
 			onSuccess: () => {
-				reset()
+				reset({
+					name: '',
+					exerciseIds: []
+				})
 			}
 		}
 	)
 
 	const onSubmit = data => {
-		mutate(data)
+		mutate({
+			name: data.name,
+			exerciseIds: data.exerciseIds.map(ex => ex.value)
+		})
 	}
 
 	return useMemo(
