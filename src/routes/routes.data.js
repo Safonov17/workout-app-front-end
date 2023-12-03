@@ -29,5 +29,15 @@ export const routes = [
 		path: '/new-exercise',
 		component: NewExercise,
 		isAuth: true
+	},
+	{
+		path: '/workout/:id',
+		component: SingleWorkout,
+		isAuth: true
+	},
+	{
+		path: '/workouts',
+		component: ListWorkouts,
+		isAuth: true
 	}
 ]
