@@ -3,8 +3,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './assets/styles/index.scss'
-import AuthProvider from './providers/AuthProvider.jsx'
-import Router from './routes/Routes.jsx'
+import AuthProvider from './providers/AuthProvider'
+import Router from './routes/Routes'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -16,10 +16,10 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<AuthProvider>
-			<QueryClientProvider client={queryClient}>
+		<QueryClientProvider client={queryClient}>
+			<AuthProvider>
 				<Router />
-			</QueryClientProvider>
-		</AuthProvider>
+			</AuthProvider>
+		</QueryClientProvider>
 	</React.StrictMode>
 )
