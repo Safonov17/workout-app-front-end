@@ -1,16 +1,18 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { Fragment } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-import Loader from '@/components/ui/Loader'
+import Loader from '@/components/ui/Loader.jsx'
+import Button from '@/components/ui/button/Button.jsx'
 
-import ExerciseItem from './ExerciseItem'
-import HeaderWorkout from './HeaderWorkout'
+import ExerciseItem from './ExerciseItem.jsx'
+import HeaderWorkout from './HeaderWorkout.jsx'
 import styles from './Workout.module.scss'
 import WorkoutLogService from '@/services/workout/workout-log.service'
 
 const Workout = () => {
 	const { id } = useParams()
+
 	const {
 		data: workoutLog,
 		isSuccess,
@@ -18,6 +20,18 @@ const Workout = () => {
 	} = useQuery(['get workout log', id], () => WorkoutLogService.getById(id), {
 		select: ({ data }) => data
 	})
+
+	const navigate = useNavigate()
+
+	const { mutate } = useMutation(
+		['complete workout'],
+		() => WorkoutLogService.complete(id),
+		{
+			onSuccess() {
+				navigate('/workouts')
+			}
+		}
+	)
 
 	return (
 		<>
@@ -33,7 +47,7 @@ const Workout = () => {
 					<Loader />
 				) : (
 					<div className={styles.wrapper}>
-						{workoutLog?.exerciseLog?.map((exerciseLog, index) => (
+						{workoutLog?.exerciseLogs?.map((exerciseLog, index) => (
 							<Fragment key={exerciseLog.id}>
 								<ExerciseItem exerciseLog={exerciseLog} />
 								{index % 2 !== 0 &&
@@ -44,6 +58,7 @@ const Workout = () => {
 						))}
 					</div>
 				)}
+				<Button clickHandler={() => mutate()}>Complete workout</Button>
 			</div>
 		</>
 	)
