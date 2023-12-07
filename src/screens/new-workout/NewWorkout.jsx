@@ -25,7 +25,7 @@ const NewWorkout = () => {
 	return (
 		<>
 			<Layout
-				bgImage='/public/images/new-workout-bg.jpg'
+				bgImage='/images/new-workout-bg.jpg'
 				heading='Create new workout'
 			/>
 			<div className='wrapper-inner-page'>
