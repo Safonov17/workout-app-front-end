@@ -1,8 +1,5 @@
 import Cookies from 'js-cookie'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { createContext } from 'react'
-import { useLocation } from 'react-router'
+import { createContext, useState } from 'react'
 
 import { TOKEN } from '../app.constants'
 
