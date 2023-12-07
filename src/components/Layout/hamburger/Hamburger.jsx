@@ -1,7 +1,7 @@
 import { CgMenuLeft } from 'react-icons/cg'
 import { IoMdClose } from 'react-icons/io'
 
-import { useOnClickOutside } from '../../../hooks/useOnClickOutside'
+import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 
 import styles from './Hamburger.module.scss'
 import Menu from './Menu'
