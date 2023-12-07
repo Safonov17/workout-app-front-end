@@ -12,12 +12,14 @@ class ExerciseLogService {
 		return $axios.post(`${LOG}/${exerciseId}`)
 	}
 
-	// weight, repeat, isCompleted
+	// "weight": 10,
+	// "repeat": 20,
+	// "isCompleted": true,
 	async updateTime(timeId, body) {
 		return $axios.put(`${LOG}/time/${timeId}`, body)
 	}
 
-	// isComplete
+	// 	"isCompleted": true
 	async complete(id, body) {
 		return $axios.patch(`${LOG}/complete/${id}`, body)
 	}
