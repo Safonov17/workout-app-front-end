@@ -2,7 +2,7 @@ import { FaRegUser } from 'react-icons/fa'
 import { GrPrevious } from 'react-icons/gr'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 import Hamburger from '../hamburger/Hamburger'
 
@@ -20,6 +20,7 @@ const Header = ({ backLink = '/' }) => {
 				<>
 					{pathname === '/' && isAuth ? (
 						<button
+							aria-label='Go to profile'
 							onClick={() => {
 								navigate('/profile')
 							}}
@@ -28,6 +29,7 @@ const Header = ({ backLink = '/' }) => {
 						</button>
 					) : (
 						<button
+							aria-label='Go back'
 							onClick={() => {
 								navigate(isAuth ? backLink : '/auth')
 							}}
