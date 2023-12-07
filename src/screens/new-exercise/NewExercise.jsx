@@ -43,9 +43,9 @@ const NewExercise = () => {
 	return (
 		<>
 			<Layout
-				bgImage='/public/images/new-exercise-bg.jpg'
-				backLink='/new-workout'
+				bgImage='/images/new-exercise-bg.jpg'
 				heading='Create new exercise'
+				backLink='/new-workout'
 			/>
 			<div className='wrapper-inner-page'>
 				{error && <Alert type='error' text={error} />}
@@ -69,7 +69,7 @@ const NewExercise = () => {
 						register={register}
 						options={{
 							valueAsNumber: true,
-							validate: value => value > 0 || 'Times must be a number',
+							validate: value => value > 0 || 'Times must be number',
 							required: 'Times is required'
 						}}
 						placeholder='Enter times'
@@ -91,7 +91,7 @@ const NewExercise = () => {
 											[styles.active]: value === getIconPath(name)
 										})}
 										onClick={() => onChange(getIconPath(name))}
-										draggable='false'
+										draggable={false}
 										height='45'
 									/>
 								))}
@@ -100,7 +100,7 @@ const NewExercise = () => {
 					/>
 
 					{errors?.iconPath && (
-						<div className='error'>{errors?.iconPath.message}</div>
+						<div className='error'>{errors?.iconPath?.message}</div>
 					)}
 
 					<Button>Create</Button>
