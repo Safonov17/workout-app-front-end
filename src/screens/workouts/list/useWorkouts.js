@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 
-import workoutLogService from '@/services/workout/workout-log.service'
+import WorkoutLogService from '@/services/workout/workout-log.service'
 import WorkoutService from '@/services/workout/workout.service'
 
 export const useWorkouts = () => {
@@ -22,7 +22,7 @@ export const useWorkouts = () => {
 		error
 	} = useMutation(
 		['Create new workout log'],
-		workoutId => workoutLogService.create(workoutId),
+		workoutId => WorkoutLogService.create(workoutId),
 		{
 			onSuccess({ data }) {
 				nav(`/workout/${data.id}`)
