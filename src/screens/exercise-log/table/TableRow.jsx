@@ -2,7 +2,7 @@ import cn from 'clsx'
 
 import styles from '../ExerciseLog.module.scss'
 
-const TableRow = ({ item }) => {
+const TableRow = ({ item, getState, onChangeState, toggleTime }) => {
 	return (
 		<div
 			className={cn(styles.row, {
@@ -15,7 +15,7 @@ const TableRow = ({ item }) => {
 				key={`Prev ${item.id}/${item.prevWeight}`}
 			>
 				<input type='number' defaultValue={item.prevWeight} disabled />
-				<i>kg{item.isCompleted ? '' : ' '}</i>
+				<i>kg{item.isCompleted ? '' : ' '}/</i>
 				<input type='number' defaultValue={item.prevRepeat} disabled />
 			</div>
 
@@ -23,13 +23,15 @@ const TableRow = ({ item }) => {
 				<input
 					type='tel'
 					pattern='[0-9]*'
-					defaultValue={item.weight}
+					value={getState(item.id, 'weight')}
+					onChange={e => onChangeState(item.id, 'weight', e.target.value)}
 					disabled={item.isCompleted}
 				/>
-				<i>kg{item.isCompleted && ' '}</i>
+				<i>kg{item.isCompleted ? '' : ' '}/</i>
 				<input
 					type='number'
-					defaultValue={item.repeat}
+					value={getState(item.id, 'repeat')}
+					onChange={e => onChangeState(item.id, 'repeat', e.target.value)}
 					disabled={item.isCompleted}
 				/>
 			</div>
@@ -37,12 +39,15 @@ const TableRow = ({ item }) => {
 			<div key={`Completed ${item.id}/${item.isCompleted}`}>
 				<img
 					src={
-						item.isCompleted
+						getState(item.id, 'isCompleted')
 							? '/images/exercises/check-completed.svg'
 							: '/images/exercises/check.svg'
 					}
-					alt=''
 					className={styles.checkbox}
+					alt=''
+					onClick={() => {
+						toggleTime(item.id, !getState(item.id, 'isCompleted'))
+					}}
 				/>
 			</div>
 		</div>
